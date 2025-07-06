@@ -3,16 +3,17 @@ import pickle
 import os
 import gdown
 
-# Function to download from Google Drive
-def download_file_from_google_drive(file_id, output):
-    if not os.path.exists(output):
-        gdown.download(f"https://drive.google.com/uc?id={file_id}", output, quiet=False)
 
-# Download pkl files from Google Drive
-download_file_from_google_drive("1eJ8wtcL5wwjI7YUpL_DXcU0dZ4ZeM-Os", "movies.pkl")
-download_file_from_google_drive("12lj8E4Xkt-bzLsrwORUsDBfG-G1p6pMe", "similarity.pkl")
+def download_file(file_id, filename):
+    url = f"https://drive.google.com/uc?id={file_id}&export=download"
+    if not os.path.exists(filename):
+        gdown.download(url, filename, quiet=False, fuzzy=True)
 
-# Now load
+# Actual file IDs from your Drive links
+download_file("1eJ8wtcL5wwjI7YUpL_DXcU0dZ4ZeM-Os", "movies.pkl")
+download_file("YOUR_SIMILARITY_FILE_ID", "similarity.pkl")
+
+# Load after download
 df = pickle.load(open("movies.pkl", "rb"))
 similarity = pickle.load(open("similarity.pkl", "rb"))
 
