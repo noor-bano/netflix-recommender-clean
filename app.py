@@ -11,7 +11,7 @@ def download_file(file_id, filename):
 
 # Actual file IDs from your Drive links
 download_file("1eJ8wtcL5wwjI7YUpL_DXcU0dZ4ZeM-Os", "movies.pkl")
-download_file("YOUR_SIMILARITY_FILE_ID", "similarity.pkl")
+download_file("12lj8E4Xkt-bzLsrwORUsDBfG-G1p6pMe", "similarity.pkl")
 
 # Load after download
 df = pickle.load(open("movies.pkl", "rb"))
